@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ListComponent from './boardList'
+import ActionButton from "./actionButton";
 import { connect } from 'react-redux';
 
 class App extends Component{
@@ -12,6 +13,7 @@ class App extends Component{
                 { lists.map(list => (
                     <ListComponent key={list.id} title={list.title} cards={list.cards} />
                 )) }
+                <ActionButton list></ActionButton>
             </div>
         </div>
     );
