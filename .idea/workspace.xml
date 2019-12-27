@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ba47dd44-f412-4e44-985e-8428615344cc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/actionButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/actionButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/boardList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/boardList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/listReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/listReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +82,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1577356065500</updated>
-      <workItem from="1577356067131" duration="17086000" />
+      <workItem from="1577356067131" duration="21669000" />
     </task>
     <servers />
   </component>
