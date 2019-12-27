@@ -9,3 +9,22 @@ export const addList = (listTitle) => {
         }
     }
 };
+
+export const sort = (
+    droppableIdStart,
+    droppableIdEnd,
+    droppableIndexStart,
+    droppableIndexEnd,
+    draggableId
+) => {
+    return {
+        type: CONSTANTS.DRAG_EVENT,
+        payload: {
+            droppableIdStart,
+            droppableIdEnd,
+            droppableIndexStart,
+            droppableIndexEnd,
+            draggableId
+        }
+    }
+};
