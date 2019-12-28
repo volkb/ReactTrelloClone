@@ -82,6 +82,23 @@ const listReducer = (state = initialState, action) => {
               const card = list.cards.splice(droppableIndexStart, 1);
               list.cards.splice(droppableIndexEnd, 0, ...card);
           }
+
+          //movement of cards between lists
+          if(droppableIdStart !== droppableIdEnd){
+              //find origin list
+              const listStart = state.find(list => droppableIdStart === list.id);
+
+              //create card movement
+              const card = listStart.cards.splice(droppableIndexStart, 1);
+
+              //find the list where the drag ended
+              const listEnd = state.find(list => droppableIdEnd === list.id);
+
+              //execute the movement
+              listEnd.cards.splice(droppableIndexEnd, 0, ...card);
+          }
+
+
           return newState;
       }
       default:
