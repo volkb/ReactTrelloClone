@@ -3,14 +3,14 @@ import { CONSTANTS } from "../actions";
 const initialState = [
     {
         title: "Initial Title",
-        id: 0,
+        id: `list-${0}`,
         cards: [
             {
-                id: 1,
+                id: `card-${0}`,
                 text: "Sample Text for ID 0."
             },
             {
-                id: 2,
+                id: `card-${1}`,
                 text: "Sample Text for ID 1."
             }
 
@@ -18,18 +18,18 @@ const initialState = [
     },
     {
         title: "Initial Title 2",
-        id: 1,
+        id: `list-${1}`,
         cards: [
             {
-                id: 4,
+                id: `card-${2}`,
                 text: "Sample Text for ID 4."
             },
             {
-                id: 5,
+                id: `card-${3}`,
                 text: "Sample Text for ID 5."
             },
             {
-                id: 6,
+                id: `card-${4}`,
                 text: "Sample Text for ID 6."
             }
 
@@ -45,14 +45,14 @@ const listReducer = (state = initialState, action) => {
       case CONSTANTS.ADD_LIST:
           const newList = {
               title: action.payload.title,
-              id: listID,
+              id: `list-${listID}`,
               cards: []
           };
           listID++;
           return [...state, newList];
       case CONSTANTS.ADD_CARD:
           const newCard = {
-              id: cardID,
+              id: `list-${cardID}`,
               text: action.payload.text
           };
           cardID++;
@@ -68,6 +68,39 @@ const listReducer = (state = initialState, action) => {
               }
           });
           return newState;
+      case CONSTANTS.DRAG_EVENT: {
+          const {
+              droppableIdStart,
+              droppableIdEnd,
+              droppableIndexStart,
+              droppableIndexEnd
+          } = action.payload;
+          const newState = [...state];
+          //handles same list movement in single item lists
+          if (droppableIdStart === droppableIdEnd) {
+              const list = state.find(list => droppableIdStart === list.id);
+              const card = list.cards.splice(droppableIndexStart, 1);
+              list.cards.splice(droppableIndexEnd, 0, ...card);
+          }
+
+          //movement of cards between lists
+          if(droppableIdStart !== droppableIdEnd){
+              //find origin list
+              const listStart = state.find(list => droppableIdStart === list.id);
+
+              //create card movement
+              const card = listStart.cards.splice(droppableIndexStart, 1);
+
+              //find the list where the drag ended
+              const listEnd = state.find(list => droppableIdEnd === list.id);
+
+              //execute the movement
+              listEnd.cards.splice(droppableIndexEnd, 0, ...card);
+          }
+
+
+          return newState;
+      }
       default:
           return state;
   }
