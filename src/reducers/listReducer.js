@@ -73,8 +73,7 @@ const listReducer = (state = initialState, action) => {
               droppableIdStart,
               droppableIdEnd,
               droppableIndexStart,
-              droppableIndexEnd,
-              draggableId
+              droppableIndexEnd
           } = action.payload;
           const newState = [...state];
           //handles same list movement in single item lists
