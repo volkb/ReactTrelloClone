@@ -1,13 +1,13 @@
 This project was started using [Create React App](https://github.com/facebook/create-react-app).
 
-##Welcome
+## Welcome
 This project was created to serve as a simple TODO tracking 
 service similar to applications such as Trello. 
 Mainly, this was created for the purpose of learning reach; 
 however, the functionality has been used to help organize 
 other projects/ day-to-day activities. 
 
-##Future Plans
+## Future Plans
 There are a few planned features I intend to add to this project as
 time allows:
 1. State saving using my custom REST-API template (V2.0 currently in development)
