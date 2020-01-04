@@ -1,4 +1,19 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was started using [Create React App](https://github.com/facebook/create-react-app).
+
+##Welcome
+This project was created to serve as a simple TODO tracking 
+service similar to applications such as Trello. 
+Mainly, this was created for the purpose of learning reach; 
+however, the functionality has been used to help organize 
+other projects/ day-to-day activities. 
+
+##Future Plans
+There are a few planned features I intend to add to this project as
+time allows:
+1. State saving using my custom REST-API template (V2.0 currently in development)
+2. 2 factor authentication using [facial recognition](https://www.npmjs.com/package/opencv4nodejs)
+3. ability to create sub-lists and priority rankings of tasks similar to 
+other management platforms such as JIRA.
 
 ## Available Scripts
 
