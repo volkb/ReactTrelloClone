@@ -1,7 +1,7 @@
 import React from 'react';
 import ListCard from './cards';
 import ActionButton from './actionButton'
-import { Droppable } from "react-beautiful-dnd";
+import { Droppable, Draggable } from "react-beautiful-dnd";
 import styled from "styled-components";
 
 const ListContainer = styled.div`
@@ -13,23 +13,29 @@ const ListContainer = styled.div`
     height: 100%;
 `;
 
-const ListComponent = ({title, cards, listID}) => {
+const ListComponent = ({title, cards, listID, index}) => {
     return (
-        <Droppable droppableId={String(listID)}>
-            {(provided) => (
-                <ListContainer {...provided.droppableProps} ref={provided.innerRef}>
-                    <h4>{title}</h4>
-                    { cards.map((card, index) => <ListCard
-                        key={card.id}
-                        index={index}
-                        text={card.text}
-                        id={card.id}/>)
-                    }
-                    <ActionButton listID={listID} />
-                    {provided.placeholder}
+        <Draggable draggableId={String(listID)} index={index}>
+            {provided => (
+                <ListContainer {...provided.draggableProps} ref={provided.innerRef} {...provided.dragHandleProps}>
+                    <Droppable droppableId={String(listID)}>
+                        {(provided) => (
+                            <div {...provided.droppableProps} ref={provided.innerRef}>
+                                <h4>{title}</h4>
+                                { cards.map((card, index) => <ListCard
+                                    key={card.id}
+                                    index={index}
+                                    text={card.text}
+                                    id={card.id}/>)
+                                }
+                                <ActionButton listID={listID} />
+                                {provided.placeholder}
+                            </div>
+                        )}
+                    </Droppable>
                 </ListContainer>
             )}
-        </Droppable>
+        </Draggable>
     )
 };
 

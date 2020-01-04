@@ -73,9 +73,19 @@ const listReducer = (state = initialState, action) => {
               droppableIdStart,
               droppableIdEnd,
               droppableIndexStart,
-              droppableIndexEnd
+              droppableIndexEnd,
+              type
           } = action.payload;
           const newState = [...state];
+
+          //handles dragging of lists
+          if(type === "list"){
+              const list = newState.splice(droppableIndexStart, 1);
+              newState.splice(droppableIndexEnd, 0, ...list);
+              console.log(newState);
+              return newState;
+          }
+
           //handles same list movement in single item lists
           if (droppableIdStart === droppableIdEnd) {
               const list = state.find(list => droppableIdStart === list.id);
