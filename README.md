@@ -14,6 +14,7 @@ time allows:
 2. 2 factor authentication using [facial recognition](https://www.npmjs.com/package/opencv4nodejs)
 3. ability to create sub-lists and priority rankings of tasks similar to 
 other management platforms such as JIRA.
+4. Dockerize all components for fast deployment of application
 
 ## Available Scripts
 
